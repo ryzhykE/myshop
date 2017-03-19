@@ -4,8 +4,8 @@
     Home page
 @endsection
 
-@section('navigation')
-    @include('partials.navigation')
+@section('header')
+    @include('partials.header')
 @endsection
 
 @section('status')

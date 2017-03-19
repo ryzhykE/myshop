@@ -18,23 +18,13 @@
                             </div>
                         </form>
                         <div class="mini-cart">
-                            <a class="cart-link" href="#"><span class="icon pe-7s-cart"></span> <span class="count">3</span> $255.00</a>
+                            <a class="cart-link" href="#"><span class="icon pe-7s-cart"></span> <span class="count">1</span> $255.00</a>
                             <div class="show-shopping-cart">
-                                <h3 class="title">YOU HAVE <span class="text-primary">(3 ITEMS)</span> IN YOUR CART</h3>
+                                <h3 class="title">YOU HAVE <span class="text-primary">(1 ITEMS)</span> IN YOUR CART</h3>
                                 <ul class="list-product">
                                     <li>
                                         <div class="thumb">
-                                            <img src="images/products/1.png" alt="">
-                                        </div>
-                                        <div class="info">
-                                            <h4 class="product-name"><a href="#">LONDON STAR SWEATSHIRT</a></h4>
-                                            <span class="price">1x£375.00</span>
-                                            <a class="remove-item" href="#"><i class="fa fa-close"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="thumb">
-                                            <img src="images/products/1.png" alt="">
+                                            <img src="{{ URL::to('src/images/products/1.png') }}" alt="">
                                         </div>
                                         <div class="info">
                                             <h4 class="product-name"><a href="#">LONDON STAR SWEATSHIRT</a></h4>

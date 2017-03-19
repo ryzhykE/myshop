@@ -39,9 +39,13 @@ return [
         'pages' => [
             (new Page(\App\Models\Menu::class))
                 ->setIcon('fa fa-bars')
-                ->setPriority(0)
-        ]
+                ->setPriority(0),
+            (new Page(\App\Models\Portfolio::class))
+                ->setIcon('fa fa-bars')
+                ->setPriority(50)
+
     ],
+        ]
 
     // Examples
     // [

@@ -14,6 +14,10 @@
 $s = 'public.';
 Route::get('/',['as' => $s . 'home',   'uses' => 'PagesController@getHome']);
 
+
+
+
+
 //social
 $s = 'social.';
 Route::get('/social/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\SocialController@getSocialRedirect']);
