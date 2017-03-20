@@ -14,14 +14,17 @@
 $s = 'public.';
 Route::get('/',['as' => $s . 'home',   'uses' => 'PagesController@getHome']);
 
-
+Route::get('/add-to-cart/{id}', [
+    'uses' => 'PagesController@getAddToCart',
+    'as' => 'product.addToCart'
+]);
 
 
 
 //social
 $s = 'social.';
-Route::get('/social/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\SocialController@getSocialRedirect']);
-Route::get('/social/handle/{provider}',     ['as' => $s . 'handle',     'uses' => 'Auth\SocialController@getSocialHandle']);
+Route::get('/social/redirect/{provider}', ['as' => $s . 'redirect', 'uses' => 'Auth\SocialController@getSocialRedirect']);
+Route::get('/social/handle/{provider}', ['as' => $s . 'handle', 'uses' => 'Auth\SocialController@getSocialHandle']);
 //user
 Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
 {
