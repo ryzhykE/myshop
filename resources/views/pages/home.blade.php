@@ -11,3 +11,7 @@
 @section('slider')
     @include('partials.slider')
 @endsection
+
+@section('content')
+    @include('partials.body')
+@endsection
