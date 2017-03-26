@@ -18,28 +18,39 @@
                             </div>
                         </form>
                         <div class="mini-cart">
-                            <a class="cart-link" href="#"><span class="icon pe-7s-cart"></span> <span class="count">1</span> $255.00</a>
+                            <a class="cart-link" href="{{ route('product.shopingCart') }}"><span class="icon pe-7s-cart"></span>
+                                <span class="count">
+                                    {{ Session::has('cart') ? Session::get('cart')->totalQty : '0' }}
+                                </span>  {{ Session::has('cart') ? Session::get('cart')->totalPrice : '0' }} грн.
+                            </a>
                             <div class="show-shopping-cart">
-                                <h3 class="title">YOU HAVE <span class="text-primary">(1 ITEMS)</span> IN YOUR CART</h3>
-                                <ul class="list-product">
-                                    <li>
-                                        <div class="thumb">
-                                            <img src="{{ URL::to('src/images/products/1.png') }}" alt="">
-                                        </div>
-                                        <div class="info">
-                                            <h4 class="product-name"><a href="#">LONDON STAR SWEATSHIRT</a></h4>
-                                            <span class="price">1x£375.00</span>
-                                            <a class="remove-item" href="#"><i class="fa fa-close"></i></a>
-                                        </div>
-                                    </li>
-                                </ul>
+                                @if(Session::has('cart'))
+                                    <h3 class="title">У ВАС <span class="text-primary">({{ Session::has('cart') ? Session::get('cart')->totalQty : '0' }} предметов)</span> В КОРЗИНЕ</h3>
+                                    <ul class="list-product">
+                                            @foreach($products as $product)
+                                                <li>
+                                                    <div class="thumb">
+                                                        <img src="src/images/products/{{$product['item']['first_img']}}" alt="">
+                                                    </div>
+                                                    <div class="info">
+                                                        <h4 class="product-name"><a href="#">{{ $product['item']['name'] }}</a></h4>
+                                                        <span class="price">{{ $product['qty'] }} x {{ $product['item']['price'] }} .грн</span>
+                                                        <a class="remove-item" href="#"><i class="fa fa-close"></i></a>
+                                                    </div>
+                                                </li>
+                                            @endforeach
+
+                                    </ul>
+
                                 <div class="sub-total">
-                                    Subtotal:£255.00
+                                    {{ Session::get('cart')->totalPrice }} грн.
                                 </div>
                                 <div class="group-button">
-                                    <a href="#" class="button">Shopping Cart</a>
-                                    <a href="#" class="check-out button">CheckOut</a>
+                                    <a href="{{ route('product.shopingCart') }}" class="button">Shopping Cart</a>
                                 </div>
+                                    @else
+                                    <p>корзина пуста</p>
+                                    @endif
                             </div>
                         </div>
                     </div>

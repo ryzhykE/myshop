@@ -199,6 +199,7 @@
     <script type="text/javascript" src="{{ URL::to('src/js/jquery.magnific-popup.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::to('src/js/masonry.js') }}"></script>
     <script type="text/javascript" src="{{ URL::to('src/js/functions.js') }}"></script>
+
 @yield('footer')
 
 </body>

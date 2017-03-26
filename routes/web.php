@@ -11,15 +11,46 @@
 |
 */
 
-$s = 'public.';
-Route::get('/',['as' => $s . 'home',   'uses' => 'PagesController@getHome']);
-
-Route::get('/add-to-cart/{id}', [
-    'uses' => 'PagesController@getAddToCart',
-    'as' => 'product.addToCart'
+Route::get('/',[
+    'as' => 'public.home',
+    'uses' => 'PagesController@getHome'
 ]);
 
+Route::get('/add-to-cart/{id}', [
+    'as' => 'product.addToCart',
+    'uses' => 'BasketController@getAddToCart',
+]);
 
+Route::get('/add-to-one/{id}', [
+    'uses' => 'BasketController@getAddToCartOne',
+    'as' => 'product.addToCartOne'
+]);
+
+Route::get('/reduce/{id}', [
+    'uses' => 'BasketController@getReduceByOne',
+    'as' => 'product.reduceByOne'
+]);
+
+Route::get('/remove/{id}', [
+    'uses' => 'BasketController@getRemoveItem',
+    'as' => 'product.remove'
+]);
+
+Route::get('/shoping-cart', [
+    'as' => 'product.shopingCart',
+    'uses' => 'MainController@getCart',
+]);
+
+Route::get('/checkout', [
+    'uses' => 'MainController@getCheckout',
+    'as' => 'checkout',
+    'middleware' => 'auth:user',
+]);
+
+Route::post('/checkout', [
+    'uses' => 'MainController@postCheckout',
+    'as' => 'checkout',
+]);
 
 //social
 $s = 'social.';
